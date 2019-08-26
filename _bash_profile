@@ -5,3 +5,11 @@ fi
 if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
 fi
+
+###-tns-completion-start-###
+if [ -f /Users/rmartinez/.tnsrc ]; then
+    source /Users/rmartinez/.tnsrc
+fi
+###-tns-completion-end-###
+
+eval "$(rbenv init -)"

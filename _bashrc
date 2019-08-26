@@ -1,6 +1,12 @@
-export PATH="$HOME/.rbenv/bin:$HOME/.rvm/bin:$PATH"
+export JAVA_8_HOME=$(/usr/libexec/java_home -v1.8)
+export JAVA_7_HOME=$(/usr/libexec/java_home -v1.7)
+export JAVA_HOME=$JAVA_8_HOME
 
-eval "$(rbenv init-)"
+export M2_HOME=/usr/local/apache-maven-3.2.5
+export PATH="$HOME/.rbenv/bin:$PATH:$M2_HOME/bin"
+#export RBENV_ROOT=/usr/local/var/rbenv
+
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 function parse_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
@@ -38,3 +44,19 @@ PS2='> '
 PS4='+ '
 }
 proml
+
+
+source ~/.aliases
+
+# MUI User Guides
+export MUI_SITE_ENV="development"
+export MUI_SITE_DEBUG=1
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+###-tns-completion-start-###
+if [ -f ~/.tnsrc ]; then
+    source ~/.tnsrc
+fi
+###-tns-completion-end-###
